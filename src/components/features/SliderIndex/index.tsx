@@ -1,34 +1,31 @@
 'use client';
 
-import { FC } from 'react';
+import React, { FC } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import SwiperCore, { EffectFade } from 'swiper';
+import cn from './Style.module.sass';
+
 import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
+
+SwiperCore.use([EffectFade]);
 
 interface SliderIndexProps {
-    sliderContent: {
-        title: string;
-    }[];
+    sliderContent: { title: string; image: string }[];
 }
 
 const SliderIndex: FC<SliderIndexProps> = ({ sliderContent }) => {
     return (
-        <Swiper
-            modules={[Navigation, Pagination, Scrollbar, A11y]}
-            spaceBetween={50}
-            slidesPerView={3}
-            navigation
-            pagination={{ clickable: true }}
-            scrollbar={{ draggable: true }}
-            onSwiper={swiper => console.log(swiper)}
-            onSlideChange={() => console.log('slide change')}
-        >
-            {sliderContent.map(({ title }, idx) => (
-                <SwiperSlide key={idx}>{title}</SwiperSlide>
-            ))}
+        <Swiper effect={'cube'}>
+            {sliderContent.map(({ title, image }, idx) => {
+                return (
+                    <SwiperSlide key={idx}>
+                        <div className={cn.slider}>
+                            <img className={cn.Image} src={image} />
+                            <div className={cn.ImageTitle}>{title}</div>
+                        </div>
+                    </SwiperSlide>
+                );
+            })}
         </Swiper>
     );
 };

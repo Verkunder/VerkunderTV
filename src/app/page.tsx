@@ -7,7 +7,6 @@ const getSliderContent = async () => {
         return response.data;
     } catch (e) {
         console.error(e);
-        return { title: 'Пустой запрос' };
     }
 };
 

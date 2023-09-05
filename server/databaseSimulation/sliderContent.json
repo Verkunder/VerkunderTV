@@ -1,8 +1,22 @@
 [
     {
-        "title": "Slide 1"
+        "title": "Spider-Man: No Way Home",
+        "image": "http://localhost:3030/images/01.jpg"
     },
     {
-        "title": "Slide 2"
+        "title": "Free Guy",
+        "image": "http://localhost:3030/images/02.jpg"
+    },
+    {
+        "title": "The Nice Guys",
+        "image": "http://localhost:3030/images/03.jpg"
+    },
+    {
+        "title": "John Wick",
+        "image": "http://localhost:3030/images/04.jpg"
+    },
+    {
+        "title": "Avatar",
+        "image": "http://localhost:3030/images/05.jpg"
     }
 ]
