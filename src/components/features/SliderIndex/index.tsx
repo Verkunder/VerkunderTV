@@ -1,13 +1,21 @@
 'use client';
 
 import React, { FC } from 'react';
+import {
+    Navigation,
+    Pagination,
+    Scrollbar,
+    A11y,
+    Autoplay,
+    EffectFade,
+} from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { EffectFade } from 'swiper';
+import Image from 'next/image';
 import cn from './Style.module.sass';
 
 import 'swiper/css';
-
-SwiperCore.use([EffectFade]);
+import 'swiper/css/scrollbar';
+import 'swiper/css/effect-fade';
 
 interface SliderIndexProps {
     sliderContent: { title: string; image: string }[];
@@ -15,13 +23,21 @@ interface SliderIndexProps {
 
 const SliderIndex: FC<SliderIndexProps> = ({ sliderContent }) => {
     return (
-        <Swiper effect={'cube'}>
+        <Swiper effect={'cube'} modules={[Scrollbar, EffectFade]}>
             {sliderContent.map(({ title, image }, idx) => {
                 return (
                     <SwiperSlide key={idx}>
                         <div className={cn.slider}>
-                            <img className={cn.Image} src={image} />
-                            <div className={cn.ImageTitle}>{title}</div>
+                            <Image
+                                width={1344}
+                                height={755}
+                                className={cn.Image}
+                                src={image}
+                                alt={title}
+                            />
+                            <span className={`${cn.ImageTitle} text-white`}>
+                                {title}
+                            </span>
                         </div>
                     </SwiperSlide>
                 );
