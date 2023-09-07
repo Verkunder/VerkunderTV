@@ -1,14 +1,13 @@
 'use client';
 
 import React, { FC } from 'react';
-import { Scrollbar, EffectFade } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, EffectFade } from 'swiper/modules';
 import Image from 'next/image';
 import cn from './Style.module.sass';
 
 import 'swiper/css';
-import 'swiper/css/scrollbar';
-import 'swiper/css/effect-fade';
+import 'swiper/css/navigation';
 
 interface SliderIndexProps {
     sliderContent: { title: string; image: string }[];
@@ -16,7 +15,15 @@ interface SliderIndexProps {
 
 const SliderIndex: FC<SliderIndexProps> = ({ sliderContent }) => {
     return (
-        <Swiper effect={'cube'} modules={[Scrollbar, EffectFade]}>
+        <Swiper
+            effect='fade'
+            loop={true}
+            navigation={{
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            }}
+            modules={[Navigation, EffectFade]}
+        >
             {sliderContent.map(({ title, image }, idx) => {
                 return (
                     <SwiperSlide key={idx}>
@@ -35,6 +42,8 @@ const SliderIndex: FC<SliderIndexProps> = ({ sliderContent }) => {
                     </SwiperSlide>
                 );
             })}
+            <div className='swiper-button-next'></div>
+            <div className='swiper-button-prev'></div>
         </Swiper>
     );
 };
