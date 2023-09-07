@@ -1,14 +1,7 @@
 'use client';
 
 import React, { FC } from 'react';
-import {
-    Navigation,
-    Pagination,
-    Scrollbar,
-    A11y,
-    Autoplay,
-    EffectFade,
-} from 'swiper';
+import { Scrollbar, EffectFade } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from 'next/image';
 import cn from './Style.module.sass';
