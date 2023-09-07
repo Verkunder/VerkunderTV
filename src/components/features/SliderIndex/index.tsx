@@ -62,7 +62,6 @@ const SliderIndex: FC<SliderIndexProps> = ({ sliderContent }) => {
     useEffect(() => {
         swiperElRef.current.addEventListener('progress', e => {
             const [swiper, progress] = e.detail;
-            console.log(progress);
         });
     }, []);
     return (
